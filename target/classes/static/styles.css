@@ -1,0 +1,132 @@
+:root {
+  --bg-page: linear-gradient(180deg, #f2efe6 0%, #e7e0cf 100%);
+  --bg-card: linear-gradient(180deg, #fff5d8 0%, #f9ebbc 100%);
+  --border-card: #e0c46d;
+  --blue-main: #0f69e8;
+  --blue-dark: #0b56bd;
+  --text-main: #1f1b16;
+  --text-soft: #655e53;
+  --shadow-soft: 0 12px 35px rgba(84, 67, 32, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px 12px;
+  background: var(--bg-page);
+  font-family: "Poppins", sans-serif;
+  color: var(--text-main);
+}
+
+.phone-frame {
+  width: min(100%, 392px);
+}
+
+.refresh-button {
+  display: block;
+  width: 142px;
+  margin: 0 auto 18px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--blue-main) 0%, var(--blue-dark) 100%);
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 600;
+  padding: 16px 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(15, 105, 232, 0.24);
+}
+
+.refresh-button:active {
+  transform: translateY(1px);
+}
+
+.coin-list {
+  display: grid;
+  gap: 8px;
+}
+
+.coin-card {
+  display: grid;
+  grid-template-columns: 0.8fr 1.4fr 1.5fr;
+  align-items: center;
+  min-height: 102px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-soft);
+}
+
+.meta-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.rank-number,
+.coin-symbol,
+.coin-price {
+  display: block;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+.rank-number {
+  font-size: 2.2rem;
+}
+
+.coin-name {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.coin-symbol {
+  font-size: 2.15rem;
+}
+
+.coin-price {
+  font-size: 2rem;
+}
+
+.status-text {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 0.98rem;
+  color: var(--text-soft);
+}
+
+.is-hidden {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 18px 8px;
+  }
+
+  .coin-card {
+    grid-template-columns: 0.8fr 1.2fr 1.3fr;
+    padding: 12px;
+  }
+
+  .rank-number {
+    font-size: 2rem;
+  }
+
+  .coin-symbol {
+    font-size: 1.95rem;
+  }
+
+  .coin-price {
+    font-size: 1.8rem;
+  }
+}

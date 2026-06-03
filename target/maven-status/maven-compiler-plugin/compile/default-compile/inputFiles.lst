@@ -1,0 +1,6 @@
+/home/otnasusdwi/Sites/cryptocurrency/src/main/java/com/example/cryptocurrency/CryptocurrencyApplication.java
+/home/otnasusdwi/Sites/cryptocurrency/src/main/java/com/example/cryptocurrency/config/AppConfig.java
+/home/otnasusdwi/Sites/cryptocurrency/src/main/java/com/example/cryptocurrency/controller/CoinController.java
+/home/otnasusdwi/Sites/cryptocurrency/src/main/java/com/example/cryptocurrency/model/Coin.java
+/home/otnasusdwi/Sites/cryptocurrency/src/main/java/com/example/cryptocurrency/model/CoinLoreResponse.java
+/home/otnasusdwi/Sites/cryptocurrency/src/main/java/com/example/cryptocurrency/service/CoinService.java

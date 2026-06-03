@@ -1,6 +1,6 @@
-# Cryptocurrency Mobile View
+# Cryptocurrency Web App with Java
 
-Proyek sederhana untuk menampilkan data cryptocurrency dari API online:
+Aplikasi web berbasis Java Spring Boot untuk menampilkan data cryptocurrency dari API online:
 
 `https://api.coinlore.net/api/tickers/`
 
@@ -11,14 +11,54 @@ Field yang ditampilkan:
 - `symbol`
 - `price_usd`
 
-## Menjalankan proyek
+## Teknologi
 
-Karena proyek ini memakai HTML, CSS, dan JavaScript murni, file bisa langsung dibuka di browser.
+- Java 21
+- Spring Boot
+- HTML
+- CSS
+- JavaScript
 
-Jika ingin menjalankan dengan server lokal:
+## Fitur
+
+- Tombol `Refresh` untuk mengambil data terbaru
+- Tampilan mobile mirip contoh layar
+- Backend Java mengambil data dari API Coinlore
+- Frontend menampilkan data dari endpoint lokal Spring Boot
+
+## Struktur Penting
+
+- `pom.xml`
+- `src/main/java/com/example/cryptocurrency/CryptocurrencyApplication.java`
+- `src/main/java/com/example/cryptocurrency/controller/CoinController.java`
+- `src/main/java/com/example/cryptocurrency/service/CoinService.java`
+- `src/main/resources/static/index.html`
+- `src/main/resources/static/styles.css`
+- `src/main/resources/static/main.js`
+
+## Cara Menjalankan
+
+1. Pastikan Java dan Maven sudah terpasang.
+2. Jalankan perintah berikut di folder proyek:
 
 ```bash
-npx serve .
+mvn spring-boot:run
 ```
 
-Lalu buka alamat yang ditampilkan di terminal.
+3. Buka browser di alamat:
+
+```text
+http://localhost:8080
+```
+
+## Endpoint Lokal
+
+Aplikasi ini menyediakan endpoint Java lokal:
+
+```text
+http://localhost:8080/api/coins
+```
+
+## Catatan
+
+Komentar untuk tujuan presentasi sudah ditambahkan di file utama Java dan file utama JavaScript.
