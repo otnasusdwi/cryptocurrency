@@ -6,12 +6,16 @@ const statusText = document.getElementById("statusText");
 // File utama untuk presentasi: mengambil data cryptocurrency dari backend Java,
 // lalu menampilkan rank, name, symbol, dan price_usd dalam tampilan mobile.
 async function fetchCoins() {
+  // Menampilkan status loading lalu meminta data ke endpoint Java lokal.
   statusText.textContent = "Memuat data cryptocurrency...";
   statusText.classList.remove("is-hidden");
   refreshButton.disabled = true;
 
   try {
-    const response = await fetch(API_URL);
+    // Timestamp dipakai agar browser tidak memakai cache lama saat refresh.
+    const response = await fetch(`${API_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+    });
 
     if (!response.ok) {
       throw new Error("Gagal mengambil data dari server");
@@ -29,6 +33,7 @@ async function fetchCoins() {
 }
 
 function renderCoins(coins) {
+  // Mengosongkan daftar lama lalu membuat kartu baru untuk setiap coin.
   coinList.innerHTML = "";
 
   if (!coins.length) {
@@ -37,6 +42,8 @@ function renderCoins(coins) {
   }
 
   coins.forEach((coin) => {
+    // Backend Java saat ini mengirim field price_usd, jadi kita baca format itu.
+    const priceUsd = coin.price_usd ?? coin.priceUsd ?? "-";
     const card = document.createElement("article");
     card.className = "coin-card";
     card.innerHTML = `
@@ -50,7 +57,7 @@ function renderCoins(coins) {
       </div>
       <div>
         <span class="meta-label">USD</span>
-        <span class="coin-price">${coin.priceUsd}</span>
+        <span class="coin-price">${priceUsd}</span>
       </div>
     `;
 

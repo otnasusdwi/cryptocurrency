@@ -12,7 +12,10 @@ async function fetchCoins() {
   refreshButton.disabled = true;
 
   try {
-    const response = await fetch(API_URL);
+    // Timestamp dipakai agar browser tidak memakai cache lama saat refresh.
+    const response = await fetch(`${API_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+    });
 
     if (!response.ok) {
       throw new Error("Gagal mengambil data dari server");
@@ -39,6 +42,8 @@ function renderCoins(coins) {
   }
 
   coins.forEach((coin) => {
+    // Backend Java saat ini mengirim field price_usd, jadi kita baca format itu.
+    const priceUsd = coin.price_usd ?? coin.priceUsd ?? "-";
     const card = document.createElement("article");
     card.className = "coin-card";
     card.innerHTML = `
@@ -52,7 +57,7 @@ function renderCoins(coins) {
       </div>
       <div>
         <span class="meta-label">USD</span>
-        <span class="coin-price">${coin.priceUsd}</span>
+        <span class="coin-price">${priceUsd}</span>
       </div>
     `;
 

@@ -1,13 +1,15 @@
 package com.example.cryptocurrency.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonAlias;
 
 public class Coin {
     private int rank;
     private String name;
     private String symbol;
 
-    @JsonProperty("price_usd")
+    // Menerima field "price_usd" dari API Coinlore,
+    // lalu mengirimkannya ke frontend sebagai "priceUsd".
+    @JsonAlias("price_usd")
     private String priceUsd;
 
     public int getRank() {
